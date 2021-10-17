@@ -1,2 +1,2 @@
-# Dice_Rolloing-master
+# Dice_Rolloing
 Class work
