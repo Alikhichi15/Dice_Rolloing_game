@@ -1,10 +1,8 @@
-import 'dart:io';
-
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
 
-import 'package:flutter/services.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -17,13 +15,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.red,
           appBar: AppBar(
             shadowColor: Colors.pink,
             backgroundColor: Colors.redAccent[700],
             centerTitle: true,
             title: Text(
-              'Dice Role',
+              'Ludo',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
@@ -131,8 +129,13 @@ class _DicepageState extends State<Dicepage> {
                       incrementCounter();
                       Diceface();
                     },
-                    child: Image(
-                      image: AssetImage('images/dice$leftdice.png'),
+                    child: Column(
+                      children: [
+                        Text('Player 1',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                        Image(
+                          image: AssetImage('images/dice$leftdice.png'),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -146,8 +149,58 @@ class _DicepageState extends State<Dicepage> {
                       Diceface();
                       incrementCounter();
                     },
-                    child: Image(
-                      image: AssetImage('images/dice$rightdice.png'),
+                    child:
+                    Column(
+                      children: [
+                        Text('Player 2',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                        Image(
+                          image: AssetImage('images/dice$rightdice.png'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ), Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: FlatButton(
+                    onPressed: () {
+                      incrementCounter();
+                      Diceface();
+                    },
+                    child: Column(
+                      children: [
+                        Text('Player 3',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                        Image(
+                          image: AssetImage('images/dice$leftdice.png'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Expanded(
+                  flex: 3,
+                  child: FlatButton(
+                    onPressed: () {
+                      Diceface();
+                      incrementCounter();
+                    },
+                    child: Column(
+                      children: [
+                        Text('Player 4',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                        GestureDetector(onTap: (){},
+                          child: Image(
+                            image: AssetImage('images/dice$rightdice.png'),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
